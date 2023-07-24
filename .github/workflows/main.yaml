@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  maven-build:
+    runs-on: self-hosted
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v3
+
+      - name: mvn package
+        run: |
+          pwd
+          ls -al
+          cat values-DEV.yml
+          
