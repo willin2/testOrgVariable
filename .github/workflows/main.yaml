@@ -6,7 +6,7 @@ on:
 
 jobs:
   maven-build:
-    runs-on: self-hosted
+    #runs-on: self-hosted
     steps:
       - name: checkout the code
         uses: actions/checkout@v3
