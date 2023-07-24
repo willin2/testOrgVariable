@@ -17,4 +17,5 @@ jobs:
           pwd
           ls -al
           cat values-DEV.yml
+          echo ${{ vars.IMAGE_REPOSITORY }}
           
