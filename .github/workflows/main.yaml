@@ -12,10 +12,10 @@ jobs:
       - name: checkout the code
         uses: actions/checkout@v3
 
-      - name: test-step1
+      - name: View values.yaml
+        run: cat values.yaml
+
+      - name: helm template
         run: |
-          pwd
-          ls -al
-          cat values.yaml
-          echo ${{ vars.IMAGE_REPOSITORY }}
-          
+          #echo ${{ vars.IMAGE_REPOSITORY }}
+          helm template --set image.repository="${{ variables.IMAGE_REPOSITORY }}" .
