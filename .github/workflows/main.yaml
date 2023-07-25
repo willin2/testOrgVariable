@@ -16,6 +16,6 @@ jobs:
         run: |
           pwd
           ls -al
-          cat values.yml
+          cat values.yaml
           echo ${{ vars.IMAGE_REPOSITORY }}
           
