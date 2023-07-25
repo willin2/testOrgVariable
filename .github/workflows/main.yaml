@@ -18,4 +18,4 @@ jobs:
       - name: helm template
         run: |
           #echo ${{ vars.IMAGE_REPOSITORY }}
-          helm template --set image.repository="${{ variables.IMAGE_REPOSITORY }}" .
+          helm template --set image.repository="${{ vars.IMAGE_REPOSITORY }}" .
