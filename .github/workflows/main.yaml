@@ -5,17 +5,17 @@ on:
       - main
 
 jobs:
-  maven-build:
+  test-job1:
     runs-on: self-hosted
     #runs-on: ubuntu-latest
     steps:
       - name: checkout the code
         uses: actions/checkout@v3
 
-      - name: mvn package
+      - name: test-step1
         run: |
           pwd
           ls -al
-          cat values-DEV.yml
+          cat values.yml
           echo ${{ vars.IMAGE_REPOSITORY }}
           
