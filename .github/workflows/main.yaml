@@ -21,6 +21,8 @@ jobs:
       #     helm template --set image.repository="${{ vars.IMAGE_REPOSITORY }}" .
 
       - name: Run script
+        env:
+          MY_TOKEN: ${{ secrets.MY_TOKEN }}
         run: |
           chmod +x ./.github/scripts/replace_variables.sh
           ./.github/scripts/replace_variables.sh
