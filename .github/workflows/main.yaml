@@ -21,9 +21,10 @@ jobs:
       #     helm template --set image.repository="${{ vars.IMAGE_REPOSITORY }}" .
 
       - name: Run script
-        run: ./.github/scripts/replace_variables.sh
+        run: |
+          chmod +x ./.github/scripts/replace_variables.sh
+          ./.github/scripts/replace_variables.sh
         shell: bash
 
       - name: Cat new file
         run: cat values-DEV.yaml.new
-        
