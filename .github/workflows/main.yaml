@@ -12,10 +12,18 @@ jobs:
       - name: checkout the code
         uses: actions/checkout@v3
 
-      - name: View values.yaml
-        run: cat values.yaml
+      # - name: View values.yaml
+      #   run: cat values.yaml
 
-      - name: helm template
-        run: |
-          #echo ${{ vars.IMAGE_REPOSITORY }}
-          helm template --set image.repository="${{ vars.IMAGE_REPOSITORY }}" .
+      # - name: helm template
+      #   run: |
+      #     #echo ${{ vars.IMAGE_REPOSITORY }}
+      #     helm template --set image.repository="${{ vars.IMAGE_REPOSITORY }}" .
+
+      - name: Run script
+        run: ./.github/scripts/replace_variables.sh
+        shell: bash
+
+      - name: Cat new file
+        run: cat values-DEV.yaml.new
+        
