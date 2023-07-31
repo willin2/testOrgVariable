@@ -25,7 +25,8 @@ curl -s -L \
 # done
 
 # non jq
-num=`grep "\"name\":" $json_file |wc -l`
+#num=`grep "\"name\":" $json_file |wc -l`
+num=`grep total_count $json_file |head -n 1 |awk '{print $2}' |sed 's/,//g'`
 for ((i=1; i<=$num; i++))
 do
     name=`grep "\"name\":" $json_file |sed -n "${i}p" |awk -F\" '{print $4}'`
