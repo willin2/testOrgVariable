@@ -11,6 +11,8 @@ curl -s -L \
     -H "X-GitHub-Api-Version: 2022-11-28" \
     https://api.github.com/orgs/willin2/actions/variables > $json_file
 
+sed -i 's/\\"//g' vars.json
+
 # # jq
 # num=`cat $json_file |jq ".variables |length"`
 # for ((i=0; i<$num; i++))
@@ -34,6 +36,11 @@ do
 
     if grep -q "<\$$name>" $values_file
     then
-        sed -i "s|<\$$name>|$value|" ${values_file}.new
+        if [ $name == "IMAGE_TAG" ]
+        then
+            sed -i "s|<\$$name>|\"$value\"|" ${values_file}.new
+        else
+            sed -i "s|<\$$name>|$value|" ${values_file}.new
+        fi
     fi
 done
